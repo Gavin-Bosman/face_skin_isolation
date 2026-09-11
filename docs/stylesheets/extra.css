@@ -1,51 +1,59 @@
-/* ── Hero section ─────────────────────────────────────────────────────────── */
-.home-hero {
-  text-align: center;
-  padding: 3rem 1rem 2rem;
+.pyfame-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+
+    max-width: 1100px;
+    margin: 0.75rem auto 1.5rem;
+    padding: 0.5rem 1rem;
 }
- 
-.hero-logo {
-  width: 160px;
-  height: auto;
-  margin-bottom: 1rem;
+
+.pyfame-hero-logo {
+    flex: 0 0 auto;
 }
- 
-.home-hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin: 0.25rem 0;
+
+.pyfame-hero-logo img {
+    width: 300px;
+    height: auto;
+    display: block;
 }
- 
-.home-hero p {
-  font-size: 1.2rem;
-  color: var(--md-default-fg-color--light);
-  margin-bottom: 1.5rem;
+
+.pyfame-hero-content {
+    flex: 1;
+    max-width: 650px;
 }
- 
-.home-hero .md-button {
-  margin: 0.25rem;
+
+.pyfame-hero-content h1 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 2.6rem;
 }
- 
-/* ── Feature cards grid ───────────────────────────────────────────────────── */
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
-  margin: 2rem 0;
+
+.pyfame-hero-content h2 {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
 }
- 
-.feature-card {
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 8px;
-  padding: 1.5rem;
-  background: var(--md-code-bg-color);
-  transition: box-shadow 0.2s ease;
+
+.pyfame-hero-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
 }
- 
-.feature-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-}
- 
-.feature-card .twemoji {
-  font-size: 1.6rem;
+
+/* Stack the hero vertically on smaller screens */
+@media screen and (max-width: 700px) {
+    .pyfame-hero {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .pyfame-hero-logo img {
+        width: 220px;
+    }
+
+    .pyfame-hero-content {
+        max-width: 100%;
+    }
 }

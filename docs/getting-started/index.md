@@ -1,6 +1,27 @@
 # Getting Started
 
-## Installing Pyfame {#install}
+## What is PyFAME?
+
+PyFAME provides tools for targeted facial analysis and manipulation
+using landmark-based computer vision techniques.
+
+It is designed for reproducible stimulus generation and batch
+processing in affective computing and behavioural research.
+
+## Features
+
+<div class="grid cards" markdown>
+
+- :material-face-recognition: **Landmark-based facial regions**
+- :material-palette: **Colour manipulation**
+- :material-eye: **Masking and occlusion**
+- :material-image-edit: **Overlays and stylisation**
+- :material-move-resize: **Spatial manipulation**
+- :material-timer-outline: **Temporal control**
+
+</div>
+
+## Installing PyFAME
 
 PyFAME requires Python >= 3.9 to be installed on your system. You can find information on installing and setting up Python [here](https://wiki.python.org/moin/BeginnersGuide/Download). Once you have Python installed, PyFAME can be installed with pip via PyPi:
 
@@ -13,16 +34,16 @@ pip install pyfame
 To install PyFAME for local development (including testing and documentation dependencies):
 
 ```sh
-git clone git@github.com:Gavin-Bosman/PyFAME.git
-cd pyfame
+git clone https://github.com/affectivedatascience/PyFAME.git
+cd PyFAME
 pip install -e ".[dev]"
 ```
 
-If you encounter any issues with installation, you are strongly encouraged to raise an issue on the projects GitHub repository page, found [here](https://github.com/Gavin-Bosman/PyFAME/issues/new). User-feedback and suggestions are greatly appreciated, and we at the PyFAME team thank you for all of your support.
+If you encounter any issues with installation, you are strongly encouraged to raise an issue on the projects GitHub repository page, found [here](https://github.com/affectivedatascience/PyFAME/issues/new). User-feedback and suggestions are greatly appreciated, and we at the PyFAME team thank you for all of your support.
 
 ## PyFAME Basics
 
-Illustrated below is the simplest method of instantiating and applying a manipulation pipeline in PyFAME. The first step in most PyFAME scripts is to call the `make_paths()` function, which will internally perform an OS-walk of the project folder (named 'data' by default; but can be user-specified). Additionally, `Make_paths()` will create a subdirectory structure internal to the project folder; namely the `raw` and `processed` subdirectories will contain all of the pre, and post-manipulation files, respectively. The function returns a pandas DataFrame containing all of the absolute and relative file paths of every file in the working folder. After retrieving the files to be processed, users have two options. Firstly, to instantiate manipulation layers and pass them along with the file paths to the `apply_layers()` function. Secondly, users may pass the file_paths directly to an analysis function (i.e. `analyse_optical_flow()`).
+Illustrated below is the simplest method of instantiating and applying a manipulation pipeline in PyFAME. The first step in most PyFAME scripts is to call the `make_paths()` function, which will internally perform an OS-walk of the project folder (named 'data' by default; but can be user-specified). Additionally, `make_paths()` will create a subdirectory structure internal to the project folder; namely the `raw` and `processed` subdirectories will contain all of the pre, and post-manipulation files, respectively. The function returns a pandas DataFrame containing all of the absolute and relative file paths of every file in the working folder. After retrieving the files to be processed, users have two options. Firstly, to instantiate manipulation layers and pass them along with the file paths to the `apply_layers()` function. Secondly, users may pass the file_paths directly to an analysis function (i.e. `analyse_optical_flow()`).
 
 ### Simple Example
 ```python

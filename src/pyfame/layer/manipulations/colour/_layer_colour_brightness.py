@@ -245,7 +245,12 @@ class LayerColourBrightness(Layer):
 def layer_colour_brightness(timing_configuration:TimingConfiguration | None = None, landmark_paths:list[list[tuple[int,...]]] | list[tuple[int,...]] = LANDMARK_FACE_OVAL, 
                             magnitude:float = 15.0, brightness_scale:str = "relative") -> LayerColourBrightness:
     """
-    Factory function for the brightness manipulation layer.
+    Factory function for the brightness manipulation layer. `LayerColourBrightness`
+    leverages the HSV colour space to perform value (or brightness) shifts in the 
+    specified area. The default relative brightness scale scales the magnitude of
+    the brightness shift relative to the input brightness, whereas the absolute
+    brightness scale scales the magnitude of the brightness shift to the full 
+    [0, 255] value range.
 
     Parameters
     ----------

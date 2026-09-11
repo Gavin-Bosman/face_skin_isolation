@@ -5,6 +5,36 @@ from pathlib import Path
 from importlib import resources
 
 def make_paths(root_path:str = None, exclude_directories:list[str] | None = ["processed", "logs", "conversion", "analysis"]) -> pd.DataFrame:
+    """ If the top level "data/" folder is not yet set up, this function will
+    create the "data/" folder along with the necessary scaffolded subfolders, 
+    and return a dataframe of absolute/relative file path pairs for all files
+    within "data/". `exclude_directories` is used to configure which subdirectories
+    are included in the OS walk of "data/", and by default it is configured to only
+    return the file paths of the unmodified images/videos found in "data/raw/".
+
+    Parameters
+    ----------
+    root_path : str
+        An optional existing directory path where all of the projects
+        data will be stored. By default this is None and this method will
+        create a new "data/" folder at the project root.
+    
+    exclude_directories : list[str]
+        A list of subfolder names to exclude from the returned dataframe
+        of file paths. 
+
+    Returns
+    -------
+    DataFrame
+
+    Raises
+    ------
+    TypeError
+        given invalid parameter typings.
+    OSError
+        given invalid file paths, or nonexistent directory names.
+    
+    """
     # The standard folder names for Pyfame input and output files. 
     dir_names = ["raw", "processed", "logs", "conversion", "analysis"]
     exclude_directories = set(exclude_directories or [])

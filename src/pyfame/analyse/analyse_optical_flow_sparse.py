@@ -123,7 +123,6 @@ def analyse_optical_flow_sparse(file_paths:pd.DataFrame, landmark_idx_to_track:l
     
     Parameters
     ----------
-    
     file_paths : DataFrame
         A 2-column dataframe consisting of absolute and relative file 
         paths.

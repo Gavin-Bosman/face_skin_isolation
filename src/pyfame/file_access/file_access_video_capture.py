@@ -4,6 +4,26 @@ from pyfame.utils.exceptions import *
 from pyfame.file_access.checks import *
 
 def get_video_capture(file_path:str) -> cv.VideoCapture:
+    """ Convenience wrapper function returning a cv2.VideoCapture instance.
+
+    Parameters
+    ----------
+
+    file_path : str
+        A path string to the video file to be read in.
+    
+    Returns
+    -------
+    cv2.VideoCapture
+
+    Raises
+    ------
+    TypeError
+        When invalid input parameter typings are passed.
+    OSError
+        Given an invalid or incomplete file path.
+
+    """
     # Perform parameter checks
     check_type(file_path, [str])
     check_valid_path(file_path)

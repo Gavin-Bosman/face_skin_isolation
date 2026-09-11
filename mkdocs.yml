@@ -1,0 +1,99 @@
+site_name: PyFAME
+site_url: https://affectivedatascience.github.io/PyFAME/
+repo_name: AffectiveDataScience/PyFAME
+repo_url: https://github.com/affectivedatascience/PyFAME
+edit_uri: tree/master/docs/
+repo_name: affectivedatascience/PyFAME
+
+theme:
+  name: material
+  logo: assets/pyfame_logo.png
+  features:
+    - navigation.indexes       # allows section index pages (important for API nav)
+    - navigation.tabs          # top-level sections as tabs
+    - navigation.tabs.sticky   # tabs stay visible on scroll
+    - navigation.sections      # expand sections in sidebar
+    - navigation.top           # back-to-top button
+    - navigation.expand
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+ 
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+            - src
+          inventories:
+            - https://docs.python.org/3/objects.inv
+          options:
+            docstring_style: numpy
+            heading_level: 2
+            show_root_heading: true
+            show_root_full_path: false
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            merge_init_into_class: true
+            separate_signature: true
+            show_signature_annotations: true
+            parameter_headings: false
+            summary: false
+ 
+nav:
+  - Home: index.md
+  - Getting Started: getting-started/index.md
+  - Reference:
+    - Reference: reference/index.md
+    - Analyse: reference/analyse.md
+    - File Access: reference/file_access.md
+    - Landmark: reference/landmark.md
+    - Layer:
+      - Layer: reference/layer/index.md
+      - Colour: reference/layer/colour.md
+      - Masking: reference/layer/mask.md
+      - Occlusion: reference/layer/occlusion.md
+      - Overlay: reference/layer/overlay.md
+      - Spatial: reference/layer/spatial.md
+      - Stylise: reference/layer/stylise.md
+    - Logging: reference/logging.md
+    - Utilities: reference/utils.md
+  - Tutorials:
+    - tutorials/index.md
+  - Changelog: changelog.md
+  - Affective Data Science Lab: https://affectivedatascience.com/
+ 
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - stylesheets/extra.css

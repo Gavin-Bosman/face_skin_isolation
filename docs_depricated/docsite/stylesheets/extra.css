@@ -1,0 +1,51 @@
+/* ── Hero section ─────────────────────────────────────────────────────────── */
+.home-hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+}
+ 
+.hero-logo {
+  width: 160px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+ 
+.home-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0.25rem 0;
+}
+ 
+.home-hero p {
+  font-size: 1.2rem;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 1.5rem;
+}
+ 
+.home-hero .md-button {
+  margin: 0.25rem;
+}
+ 
+/* ── Feature cards grid ───────────────────────────────────────────────────── */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+ 
+.feature-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: var(--md-code-bg-color);
+  transition: box-shadow 0.2s ease;
+}
+ 
+.feature-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+ 
+.feature-card .twemoji {
+  font-size: 1.6rem;
+}

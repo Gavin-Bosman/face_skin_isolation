@@ -45,7 +45,38 @@ def make_json_serializable(obj):
     else:
         return obj
 
-def write_experiment_log(layers:list[Layer], working_directory_path:str) -> None:
+def write_experiment_log(layers:list[Layer], working_directory_path:str = (os.path.normpath(os.path.join(os.getcwd(), "data")))) -> None:
+    """ Given a list of layers and the working data folder path, 
+    write out a JSON file log containing all layers, TimingConfigurations 
+    and layer parameters used in the last `apply_layers()` call. 
+
+    Parameters
+    ----------
+
+    layers : list[Layer]
+        A list of the Layer objects to be logged. Internally
+        passed by `apply_layers()` after each successful 
+        processing run
+
+    working_directory_path : str
+        A path string to the working data folder within your
+        current working directory. Defaults to 
+        os.path.join(os.getcwd(), "data").
+    
+    Returns
+    -------
+    None
+
+    Raises
+    ------
+    OSError
+        If unable to locate working_director_path, or 
+        working_directory_path is an invalid path string.
+    
+    ValidationError
+        If any of the parameter data pass is not JSON
+        serializable.
+    """
     if os.getenv("PYTEST_RUNNING") == "1":
         return
     else:

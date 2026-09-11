@@ -8,7 +8,7 @@ def get_variable_name(variable, namespace) -> str:
     """ Takes in a variable and a namespace (one of locals() or globals()), and returns the variables defined name in the 
         relevant scope.
 
-        parameters
+        Parameters
         ----------
 
         variable: any
@@ -17,7 +17,7 @@ def get_variable_name(variable, namespace) -> str:
         namespace: function
             One of locals() or globals(), defines which scope for the function to look at when searching for the variables name.
         
-        returns
+        Returns
         -------
 
         variable_name: str
@@ -95,6 +95,24 @@ def display_landmarks_face_overlay(frame, landmarker_coordinates, point_radius:i
     """ Given a frame or image containing a face, and the FaceLandmarker landmark coordinates list
     returned from applying the FaceLandmarker to the frame or image, visualize all landmark points on the 
     frame or image.
+
+    Parameters
+    ----------
+
+    frame : ndarray
+        The static image or video frame to have the
+        FaceLandmarker points overlayed on.
+    
+    landmarker_coordinates : list[tuple[int,int]]
+        The pixel coordinates of the facial landmarks returned 
+        by `get_landmarker_coordinates()`.
+    
+    point_radius : int
+        The radius of the overlayed points. 
+    
+    Returns
+    -------
+    None
     """
     for (x, y) in landmarker_coordinates:
         cv.circle(frame, (x,y), point_radius, (0, 0, 255), -1)

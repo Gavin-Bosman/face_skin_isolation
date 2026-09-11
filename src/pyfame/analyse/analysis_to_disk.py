@@ -7,6 +7,40 @@ from pyfame.file_access.file_access_directories import create_output_directory
 
 def analysis_to_disk(analysis_dictionary:dict[str, pd.DataFrame], analysis_label:str, working_directory_path:str = os.path.join(os.getcwd(), "data"),
                      output_folder_name:str | None = None) -> None:
+    """ Given an analysis dictionary output containing (filename, DataFrame) pairs, 
+    this function writes each analysis result to disk as a JSON file. Use this method
+    to visualize results from `analyse_facial_colour_means`, `analyse_optical_flow_dense`
+    or `analyse_optical_flow_sparse`.
+
+    Parameters
+    ----------
+    analysis_dictionary : dict[str, DataFrame]
+        a dictionary of (filename, DataFrame) pairs containing per-file
+        analysis data.
+    
+    analysis_label : str
+        A description of the analysis type performed used as metadata
+        in the output JSON file.
+
+    working_directory_path : str
+        By default the "data/" folder in your current working directory;
+        a path string to the folder where the analysis JSON files will be
+        written.
+    
+    output_folder_name : str
+        An optional subfolder name to organize this specific batch of
+        analysis output files.
+    
+    Returns
+    -------
+    None
+
+    Raises
+    ------
+    OSError
+        Given invalid directory paths.
+    
+    """
 
     if not os.path.isdir(working_directory_path):
         raise OSError(

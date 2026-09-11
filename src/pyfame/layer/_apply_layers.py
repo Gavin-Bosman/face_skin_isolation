@@ -57,6 +57,10 @@ def apply_layers(file_paths:pd.DataFrame, layers:list[Layer] | Layer, min_face_d
         continue using the current mesh layout. If this parameter fails, the landmarker will
         transition back to facial detection.
     
+    Returns
+    -------
+    None
+    
     Raises
     ------
     
@@ -68,10 +72,6 @@ def apply_layers(file_paths:pd.DataFrame, layers:list[Layer] | Layer, min_face_d
         When an error occurs attempting to write out an image or video frame.
     UnrecognizedExtensionError
         Given an image or video with an unrecognized container/codec.
-    
-    Returns
-    -------
-    None
     """
 
     # Get the current sys timestamp for a unique output folder

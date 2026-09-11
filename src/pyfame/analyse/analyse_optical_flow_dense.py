@@ -79,12 +79,10 @@ def analyse_optical_flow_dense(file_paths:pd.DataFrame, frame_step:int = 5, outp
     
     Returns
     -------
-
     dict[str, pandas.DataFrame]
 
     Raises
     ------
-
     ValidationError
         Thrown by the pydantic model when invalid parameters are passed to the method.
     
